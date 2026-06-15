@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Fitness | Transform Your Body</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --yellow:#FFD000;
+    --black:#000;
+    --dark:#111;
+    --gray:#1b1b1b;
+    --white:#fff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#000;
+    color:white;
+    overflow-x:hidden;
+}
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,.95);
+    backdrop-filter:blur(10px);
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(255,208,0,.2);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+    color:var(--yellow);
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--yellow);
+}
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)),
+    url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:5rem;
+    color:var(--yellow);
+    text-transform:uppercase;
+}
+
+.hero-content p{
+    margin:20px auto;
+    max-width:700px;
+    font-size:1.2rem;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 40px;
+    background:var(--yellow);
+    color:black;
+    text-decoration:none;
+    font-weight:700;
+    border-radius:40px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+section{
+    padding:100px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:3rem;
+    color:var(--yellow);
+    margin-bottom:50px;
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:20px;
+}
+
+.about-text h3{
+    color:var(--yellow);
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.stats{
+    background:var(--dark);
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+    text-align:center;
+}
+
+.stat{
+    padding:30px;
+}
+
+.stat h2{
+    color:var(--yellow);
+    font-size:3rem;
+}
+
+.services-grid,
+.trainer-grid,
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#111;
+    border:2px solid rgba(255,208,0,.2);
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:var(--yellow);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card-content h3{
+    color:var(--yellow);
+    margin-bottom:10px;
+}
+
+.gallery img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+.pricing{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.plan{
+    background:#111;
+    border:3px solid var(--yellow);
+    padding:40px;
+    text-align:center;
+    border-radius:20px;
+}
+
+.plan h3{
+    color:var(--yellow);
+    font-size:2rem;
+}
+
+.price{
+    font-size:3rem;
+    margin:20px 0;
+}
+
+.plan ul{
+    list-style:none;
+    margin:20px 0;
+}
+
+.plan li{
+    margin:10px 0;
+}
+
+.featured{
+    transform:scale(1.05);
+    background:#181818;
+}
+
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.testimonial{
+    background:#111;
+    padding:30px;
+    border-left:5px solid var(--yellow);
+    border-radius:15px;
+}
+
+.contact{
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
+    url('https://images.unsplash.com/photo-1571019613914-85f342c55f55?auto=format&fit=crop&w=1920&q=80');
+    background-size:cover;
+}
+
+.contact h2{
+    color:var(--yellow);
+    font-size:3rem;
+}
+
+footer{
+    background:#080808;
+    text-align:center;
+    padding:30px;
+}
+
+footer span{
+    color:var(--yellow);
+}
+
+@media(max-width:900px){
+
+.hero-content h1{
+    font-size:3rem;
+}
+
+.about{
+    grid-template-columns:1fr;
+}
+
+nav ul{
+    display:none;
+}
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">ELITE FITNESS</div>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Programs</a></li>
+        <li><a href="#trainers">Trainers</a></li>
+        <li><a href="#pricing">Plans</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Elite Fitness</h1>
+        <p>
+            Build Strength. Burn Fat. Transform Your Life.
+            Certified Trainers • Diet Manager • Modern Equipment
+        </p>
+        <a href="#pricing" class="btn">Join Today</a>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="title">About Elite Fitness</h2>
+
+    <div class="about">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1000&q=80">
+
+        <div class="about-text">
+            <h3>Your Transformation Starts Here</h3>
+            <p>
+                Elite Fitness is dedicated to helping members achieve
+                their fitness goals through professional training,
+                personalized workout plans, and expert nutritional guidance.
+            </p>
+            <br>
+            <p>
+                Whether your goal is weight loss, muscle building,
+                strength training, or overall health improvement,
+                our certified trainers and diet manager are here to guide you.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="stats">
+    <h2 class="title">Elite Fitness Numbers</h2>
+
+    <div class="stats-grid">
+        <div class="stat">
+            <h2>500+</h2>
+            <p>Members</p>
+        </div>
+
+        <div class="stat">
+            <h2>5+</h2>
+            <p>Certified Trainers</p>
+        </div>
+
+        <div class="stat">
+            <h2>100%</h2>
+            <p>Dedication</p>
+        </div>
+
+        <div class="stat">
+            <h2>24/7</h2>
+            <p>Motivation</p>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <h2 class="title">Training Programs</h2>
+
+    <div class="services-grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1000&q=80">
+            <div class="card-content">
+                <h3>Weight Training</h3>
+                <p>Build strength and muscle with expert guidance.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=80">
+            <div class="card-content">
+                <h3>Fat Loss</h3>
+                <p>Structured programs for healthy and sustainable fat loss.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=1000&q=80">
+            <div class="card-content">
+                <h3>Cardio Fitness</h3>
+                <p>Improve endurance and cardiovascular health.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="trainers">
+    <h2 class="title">Certified Trainers & Diet Manager</h2>
+
+    <div class="trainer-grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=1000&q=80">
+            <div class="card-content">
+                <h3>Certified Trainers</h3>
+                <p>Professional coaching for every fitness level.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1000&q=80">
+            <div class="card-content">
+                <h3>Diet Manager</h3>
+                <p>Customized nutrition plans for better results.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2 class="title">Elite Fitness Gallery</h2>
+
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1000&q=80">
+        <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=1000&q=80">
+        <img src="https://images.unsplash.com/photo-1605296867724-fa87a8ef53fd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1000&q=80">
+    </div>
+</section>
+
+<section id="pricing">
+    <h2 class="title">Membership Plans</h2>
+
+    <div class="pricing">
+
+        <div class="plan">
+            <h3>Monthly</h3>
+            <div class="price">₹1000</div>
+            <ul>
+                <li>Gym Access</li>
+                <li>Trainer Support</li>
+                <li>Diet Guidance</li>
+                <li>Registration Fee ₹500</li>
+            </ul>
+        </div>
+
+        <div class="plan featured">
+            <h3>3 Months</h3>
+            <div class="price">₹2500</div>
+            <ul>
+                <li>Best Value</li>
+                <li>Trainer Support</li>
+                <li>Diet Manager</li>
+                <li>Save More</li>
+            </ul>
+        </div>
+
+        <div class="plan">
+            <h3>Yearly</h3>
+            <div class="price">₹8000</div>
+            <ul>
+                <li>Unlimited Access</li>
+                <li>Certified Trainers</li>
+                <li>Diet Manager</li>
+                <li>Maximum Savings</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2 class="title">Member Reviews</h2>
+
+    <div class="testimonials">
+
+        <div class="testimonial">
+            <p>"Amazing trainers and excellent equipment. Highly recommended!"</p>
+            <br>
+            <strong>- Gym Member</strong>
+        </div>
+
+        <div class="testimonial">
+            <p>"The diet manager helped me lose weight and stay healthy."</p>
+            <br>
+            <strong>- Fitness Client</strong>
+        </div>
+
+        <div class="testimonial">
+            <p>"Best gym environment with professional support."</p>
+            <br>
+            <strong>- Elite Member</strong>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Ready To Transform?</h2>
+    <p style="max-width:700px;margin:20px auto;">
+        Join Elite Fitness today and start your journey towards a stronger,
+        healthier, and more confident you.
+    </p>
+
+    <a href="#" class="btn">Join Elite Fitness</a>
+</section>
+
+<footer>
+    <h3><span>Elite Fitness</span></h3>
+    <p>Certified Trainers • Diet Manager • Premium Fitness Experience</p>
+    <br>
+    <p>© 2026 Elite Fitness. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
